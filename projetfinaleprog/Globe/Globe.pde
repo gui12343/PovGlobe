@@ -57,7 +57,7 @@ if(mousePressed == true && mouseX > 315 && mouseX < 330 && mouseY > 7 && mouseY 
    image(img, posXimage, posYimage);   
    DrawCanvas(posXimage, posYimage);
    break;
-   case 2:   
+   case 2:     
     DrawLine(posXlinedraw, posYlinedraw);
     DrawCanvas(posXlinedraw, posYlinedraw); 
    break;
@@ -67,9 +67,8 @@ if(mousePressed == true && mouseX > 315 && mouseX < 330 && mouseY > 7 && mouseY 
 
 void menu()
 { 
-  
- textSize(15);
- fill(50);
+  fill(50);
+ textSize(15); 
  text("Choisissez un mode : ", 0, 20);
  text("Afficher image", 200, 20);
  if(choice == 2)
@@ -95,6 +94,7 @@ void DrawCanvas(int posX, int posY)
     {       
       fill(get(((600/columns)*i) + posX,((300/rows)*(j+1)) + posY ));     
       strokeWeight(1);
+      stroke(1);
       rect(((600/columns)*i) + posX, 300 + posY + ((300/rows)*(j+1)),rectanglewidth,rectangleheight);
     }
   }
@@ -104,9 +104,9 @@ void DrawCanvas(int posX, int posY)
 void DrawLine(int posX, int posY)
 {
    
-  if(mousePressed == true && mouseX > posX && mouseY > posY && mouseY < (300+posY)  && pmouseX > posX && pmouseY > posY && pmouseY < (300+posY)) {
-    fill(255);
-    strokeWeight(8);
+  if(mousePressed == true && mouseX > posX && mouseY > posY && mouseY < (300+posY)  && pmouseX > posX && pmouseY > posY && pmouseY < (300+posY)) {    
+    strokeWeight(8);    
+    stroke(random(1,255),random(1,255),random(1,255));
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
 }
